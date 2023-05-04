@@ -14,6 +14,9 @@
 		DDF46DC62A0458FB0006327D /* WorldOfPaybackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF46DC52A0458FB0006327D /* WorldOfPaybackTests.swift */; };
 		DDF46DD02A0458FB0006327D /* WorldOfPaybackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF46DCF2A0458FB0006327D /* WorldOfPaybackUITests.swift */; };
 		DDF46DD22A0458FB0006327D /* WorldOfPaybackUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF46DD12A0458FB0006327D /* WorldOfPaybackUITestsLaunchTests.swift */; };
+		DDF46DE12A0459300006327D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DDF46DDF2A0459300006327D /* README.md */; };
+		DDF46DE22A0459300006327D /* PBTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = DDF46DE02A0459300006327D /* PBTransactions.json */; };
+		DDF46DE62A0459A50006327D /* Transactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF46DE52A0459A50006327D /* Transactions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		DDF46DCB2A0458FB0006327D /* WorldOfPaybackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldOfPaybackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF46DCF2A0458FB0006327D /* WorldOfPaybackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPaybackUITests.swift; sourceTree = "<group>"; };
 		DDF46DD12A0458FB0006327D /* WorldOfPaybackUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPaybackUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DDF46DDF2A0459300006327D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DDF46DE02A0459300006327D /* PBTransactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PBTransactions.json; sourceTree = "<group>"; };
+		DDF46DE52A0459A50006327D /* Transactions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transactions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,7 @@
 		DDF46DA82A0458FA0006327D = {
 			isa = PBXGroup;
 			children = (
+				DDF46DDE2A0459160006327D /* Given */,
 				DDF46DB32A0458FA0006327D /* WorldOfPayback */,
 				DDF46DC42A0458FB0006327D /* WorldOfPaybackTests */,
 				DDF46DCE2A0458FB0006327D /* WorldOfPaybackUITests */,
@@ -94,6 +101,7 @@
 		DDF46DB32A0458FA0006327D /* WorldOfPayback */ = {
 			isa = PBXGroup;
 			children = (
+				DDF46DE32A0459500006327D /* Core */,
 				DDF46DB42A0458FA0006327D /* WorldOfPaybackApp.swift */,
 				DDF46DB62A0458FA0006327D /* ContentView.swift */,
 				DDF46DB82A0458FB0006327D /* Assets.xcassets */,
@@ -125,6 +133,31 @@
 				DDF46DD12A0458FB0006327D /* WorldOfPaybackUITestsLaunchTests.swift */,
 			);
 			path = WorldOfPaybackUITests;
+			sourceTree = "<group>";
+		};
+		DDF46DDE2A0459160006327D /* Given */ = {
+			isa = PBXGroup;
+			children = (
+				DDF46DE02A0459300006327D /* PBTransactions.json */,
+				DDF46DDF2A0459300006327D /* README.md */,
+			);
+			path = Given;
+			sourceTree = "<group>";
+		};
+		DDF46DE32A0459500006327D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DDF46DE42A0459600006327D /* Types */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		DDF46DE42A0459600006327D /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				DDF46DE52A0459A50006327D /* Transactions.swift */,
+			);
+			path = Types;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +264,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF46DE12A0459300006327D /* README.md in Resources */,
 				DDF46DBC2A0458FB0006327D /* Preview Assets.xcassets in Resources */,
+				DDF46DE22A0459300006327D /* PBTransactions.json in Resources */,
 				DDF46DB92A0458FB0006327D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF46DE62A0459A50006327D /* Transactions.swift in Sources */,
 				DDF46DB72A0458FA0006327D /* ContentView.swift in Sources */,
 				DDF46DB52A0458FA0006327D /* WorldOfPaybackApp.swift in Sources */,
 			);
