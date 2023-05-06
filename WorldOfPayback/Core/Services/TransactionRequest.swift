@@ -12,7 +12,7 @@ enum TransactionRequest: NetworkRequest {
     case fetchTransactions
 
     var host: String {
-        APIConstants.baseURL
+        AppEnvironment.shared.isProduction ? APIConstants.baseURL : APIConstants.testURL
     }
     
     var headers: [String : String] {

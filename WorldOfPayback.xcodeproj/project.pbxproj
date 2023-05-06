@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		DD00D7FC2A046082007EF999 /* NetworkManager in Frameworks */ = {isa = PBXBuildFile; productRef = DD00D7FB2A046082007EF999 /* NetworkManager */; };
 		DD00D7FF2A046173007EF999 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD00D7FE2A046173007EF999 /* APIConstants.swift */; };
+		DD2661EC2A0667FA00A0A98F /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2661EB2A0667FA00A0A98F /* AppEnvironment.swift */; };
+		DD2661EF2A066F8400A0A98F /* MockDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2661EE2A066F8400A0A98F /* MockDataProvider.swift */; };
+		DD2661F12A06732900A0A98F /* TransactionListModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2661F02A06732900A0A98F /* TransactionListModelView.swift */; };
 		DDF46DB52A0458FA0006327D /* WorldOfPaybackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF46DB42A0458FA0006327D /* WorldOfPaybackApp.swift */; };
-		DDF46DB72A0458FA0006327D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF46DB62A0458FA0006327D /* ContentView.swift */; };
+		DDF46DB72A0458FA0006327D /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF46DB62A0458FA0006327D /* TransactionListView.swift */; };
 		DDF46DB92A0458FB0006327D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF46DB82A0458FB0006327D /* Assets.xcassets */; };
 		DDF46DBC2A0458FB0006327D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF46DBB2A0458FB0006327D /* Preview Assets.xcassets */; };
 		DDF46DC62A0458FB0006327D /* WorldOfPaybackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF46DC52A0458FB0006327D /* WorldOfPaybackTests.swift */; };
@@ -42,9 +45,12 @@
 
 /* Begin PBXFileReference section */
 		DD00D7FE2A046173007EF999 /* APIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		DD2661EB2A0667FA00A0A98F /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		DD2661EE2A066F8400A0A98F /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
+		DD2661F02A06732900A0A98F /* TransactionListModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListModelView.swift; sourceTree = "<group>"; };
 		DDF46DB12A0458FA0006327D /* WorldOfPayback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldOfPayback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF46DB42A0458FA0006327D /* WorldOfPaybackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPaybackApp.swift; sourceTree = "<group>"; };
-		DDF46DB62A0458FA0006327D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DDF46DB62A0458FA0006327D /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
 		DDF46DB82A0458FB0006327D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDF46DBB2A0458FB0006327D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DDF46DC12A0458FB0006327D /* WorldOfPaybackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorldOfPaybackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,7 +64,7 @@
 		DDF46DEB2A045B100006327D /* NetworkManager */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NetworkManager; path = Packages/NetworkManager; sourceTree = "<group>"; };
 		DDF46DEF2A045EC50006327D /* TransactionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionService.swift; sourceTree = "<group>"; };
 		DDF46DF12A045EF20006327D /* TransactionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRequest.swift; sourceTree = "<group>"; };
-		DDF46DF32A045F140006327D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DDF46DF32A045F140006327D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,25 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		DD2661F22A067D8600A0A98F /* TransactionList */ = {
+			isa = PBXGroup;
+			children = (
+				DDF46DB62A0458FA0006327D /* TransactionListView.swift */,
+				DD2661F02A06732900A0A98F /* TransactionListModelView.swift */,
+			);
+			path = TransactionList;
+			sourceTree = "<group>";
+		};
+		DD2661F32A067D9800A0A98F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DDF46DB82A0458FB0006327D /* Assets.xcassets */,
+				DDF46DF32A045F140006327D /* Info.plist */,
+				DDF46DB42A0458FA0006327D /* WorldOfPaybackApp.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		DDF46DA82A0458FA0006327D = {
 			isa = PBXGroup;
 			children = (
@@ -121,12 +146,10 @@
 		DDF46DB32A0458FA0006327D /* WorldOfPayback */ = {
 			isa = PBXGroup;
 			children = (
-				DDF46DF32A045F140006327D /* Info.plist */,
+				DD2661F32A067D9800A0A98F /* Common */,
+				DD2661F22A067D8600A0A98F /* TransactionList */,
 				DDF46DEC2A045DC50006327D /* Resources */,
 				DDF46DE32A0459500006327D /* Core */,
-				DDF46DB42A0458FA0006327D /* WorldOfPaybackApp.swift */,
-				DDF46DB62A0458FA0006327D /* ContentView.swift */,
-				DDF46DB82A0458FB0006327D /* Assets.xcassets */,
 				DDF46DBA2A0458FB0006327D /* Preview Content */,
 			);
 			path = WorldOfPayback;
@@ -160,6 +183,7 @@
 		DDF46DE32A0459500006327D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				DD2661EB2A0667FA00A0A98F /* AppEnvironment.swift */,
 				DD00D7FD2A046167007EF999 /* Constants */,
 				DDF46DEE2A045EB20006327D /* Services */,
 				DDF46DE42A0459600006327D /* Types */,
@@ -204,6 +228,7 @@
 			children = (
 				DDF46DEF2A045EC50006327D /* TransactionService.swift */,
 				DDF46DF12A045EF20006327D /* TransactionRequest.swift */,
+				DD2661EE2A066F8400A0A98F /* MockDataProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -350,11 +375,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD2661EF2A066F8400A0A98F /* MockDataProvider.swift in Sources */,
+				DD2661EC2A0667FA00A0A98F /* AppEnvironment.swift in Sources */,
 				DDF46DF22A045EF20006327D /* TransactionRequest.swift in Sources */,
 				DDF46DE62A0459A50006327D /* Transactions.swift in Sources */,
 				DD00D7FF2A046173007EF999 /* APIConstants.swift in Sources */,
-				DDF46DB72A0458FA0006327D /* ContentView.swift in Sources */,
+				DDF46DB72A0458FA0006327D /* TransactionListView.swift in Sources */,
 				DDF46DF02A045EC50006327D /* TransactionService.swift in Sources */,
+				DD2661F12A06732900A0A98F /* TransactionListModelView.swift in Sources */,
 				DDF46DB52A0458FA0006327D /* WorldOfPaybackApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

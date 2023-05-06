@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct WorldOfPaybackApp: App {
+
+    init() {
+        AppEnvironment.shared.isProduction = false // Assuming JSON read case, can be changed in the app
+    }
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TransactionListView(viewModel: DefaultTransactionListModelView())
         }
     }
 }
