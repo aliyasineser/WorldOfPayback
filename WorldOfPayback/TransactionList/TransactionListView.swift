@@ -17,23 +17,20 @@ struct TransactionListView<ViewModel>: View where ViewModel: TransactionListMode
     }
 
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-
-            if let transactions = viewModel.transactions {
-                List(transactions.items, id: \.alias.reference) {
-                    Text($0.partnerDisplayName)
-                    if let description = $0.transactionDetail.description?.rawValue {
-                        Text(description)
+        NavigationView {
+            VStack {
+                if let transactions = viewModel.transactions {
+                    List(transactions.items, id: \.alias.reference) {
+                        TransactionItemCard(item: $0)
                     }
+                    
                 }
             }
+            .padding()
+            .onAppear(perform: viewModel.onAppear)
+            .navigationTitle("World Of Payback")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .padding()
-        .onAppear(perform: viewModel.onAppear)
     }
 }
 

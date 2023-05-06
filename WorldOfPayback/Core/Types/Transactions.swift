@@ -18,11 +18,15 @@ struct Item: Codable {
     let alias: Alias
     let category: Int
     let transactionDetail: TransactionDetail
+
+    public static let mock: Item = Item(partnerDisplayName: "Display Name", alias: .mock, category: 1, transactionDetail: .mock)
 }
 
 // MARK: - Alias
 struct Alias: Codable {
     let reference: String
+
+    public static let mock: Alias = Alias(reference: "ReferenceNumber")
 }
 
 // MARK: - TransactionDetail
@@ -30,6 +34,12 @@ struct TransactionDetail: Codable {
     let description: Description?
     let bookingDate: Date
     let value: Value
+
+    internal init(description: Description? = nil, bookingDate: Date, value: Value) {
+        self.description = description
+        self.bookingDate = bookingDate
+        self.value = value
+    }
 
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -47,6 +57,8 @@ struct TransactionDetail: Codable {
 
         self.value = try container.decode(Value.self, forKey: .value)
     }
+
+    public static let mock: TransactionDetail = TransactionDetail(description: .punkteSammeln, bookingDate: .now, value: .mock)
 }
 
 enum Description: String, Codable {
@@ -57,8 +69,22 @@ enum Description: String, Codable {
 struct Value: Codable {
     let amount: Int
     let currency: Currency
+
+    public static let mock: Value = Value(amount: 100, currency: .pbp)
 }
 
 enum Currency: String, Codable {
     case pbp = "PBP"
+    case eur = "EUR"
+
+    func iconName() -> String {
+        switch self {
+        case .eur:
+            return "eurosign"
+        case .pbp:
+            return "sterlingsign"
+        default:
+            return "turkishlirasign"
+        }
+    }
 }

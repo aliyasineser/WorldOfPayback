@@ -12,6 +12,7 @@
 		DD2661EC2A0667FA00A0A98F /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2661EB2A0667FA00A0A98F /* AppEnvironment.swift */; };
 		DD2661EF2A066F8400A0A98F /* MockDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2661EE2A066F8400A0A98F /* MockDataProvider.swift */; };
 		DD2661F12A06732900A0A98F /* TransactionListModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2661F02A06732900A0A98F /* TransactionListModelView.swift */; };
+		DD2661F52A06818300A0A98F /* TransactionItemCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2661F42A06818300A0A98F /* TransactionItemCard.swift */; };
 		DDF46DB52A0458FA0006327D /* WorldOfPaybackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF46DB42A0458FA0006327D /* WorldOfPaybackApp.swift */; };
 		DDF46DB72A0458FA0006327D /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF46DB62A0458FA0006327D /* TransactionListView.swift */; };
 		DDF46DB92A0458FB0006327D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF46DB82A0458FB0006327D /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		DD2661EB2A0667FA00A0A98F /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		DD2661EE2A066F8400A0A98F /* MockDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataProvider.swift; sourceTree = "<group>"; };
 		DD2661F02A06732900A0A98F /* TransactionListModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListModelView.swift; sourceTree = "<group>"; };
+		DD2661F42A06818300A0A98F /* TransactionItemCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionItemCard.swift; sourceTree = "<group>"; };
 		DDF46DB12A0458FA0006327D /* WorldOfPayback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldOfPayback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF46DB42A0458FA0006327D /* WorldOfPaybackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPaybackApp.swift; sourceTree = "<group>"; };
 		DDF46DB62A0458FA0006327D /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			children = (
 				DDF46DB62A0458FA0006327D /* TransactionListView.swift */,
 				DD2661F02A06732900A0A98F /* TransactionListModelView.swift */,
+				DD2661F42A06818300A0A98F /* TransactionItemCard.swift */,
 			);
 			path = TransactionList;
 			sourceTree = "<group>";
@@ -146,10 +149,10 @@
 		DDF46DB32A0458FA0006327D /* WorldOfPayback */ = {
 			isa = PBXGroup;
 			children = (
-				DD2661F32A067D9800A0A98F /* Common */,
 				DD2661F22A067D8600A0A98F /* TransactionList */,
-				DDF46DEC2A045DC50006327D /* Resources */,
 				DDF46DE32A0459500006327D /* Core */,
+				DD2661F32A067D9800A0A98F /* Common */,
+				DDF46DEC2A045DC50006327D /* Resources */,
 				DDF46DBA2A0458FB0006327D /* Preview Content */,
 			);
 			path = WorldOfPayback;
@@ -378,6 +381,7 @@
 				DD2661EF2A066F8400A0A98F /* MockDataProvider.swift in Sources */,
 				DD2661EC2A0667FA00A0A98F /* AppEnvironment.swift in Sources */,
 				DDF46DF22A045EF20006327D /* TransactionRequest.swift in Sources */,
+				DD2661F52A06818300A0A98F /* TransactionItemCard.swift in Sources */,
 				DDF46DE62A0459A50006327D /* Transactions.swift in Sources */,
 				DD00D7FF2A046173007EF999 /* APIConstants.swift in Sources */,
 				DDF46DB72A0458FA0006327D /* TransactionListView.swift in Sources */,
@@ -545,7 +549,7 @@
 				DEVELOPMENT_TEAM = K8CQ9C2992;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WorldOfPayback/Info.plist;
+				INFOPLIST_FILE = WorldOfPayback/Common/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -575,7 +579,7 @@
 				DEVELOPMENT_TEAM = K8CQ9C2992;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WorldOfPayback/Info.plist;
+				INFOPLIST_FILE = WorldOfPayback/Common/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
