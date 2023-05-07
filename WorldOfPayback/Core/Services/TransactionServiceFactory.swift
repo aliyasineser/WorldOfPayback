@@ -9,7 +9,6 @@ import Foundation
 import NetworkManager
 
 // MARK: - Factory
-
 class TransactionServiceFactory {
     static func make(
         requestManager: RequestManager = RequestManagerFactory().make()

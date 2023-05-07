@@ -10,18 +10,22 @@ import XCTest
 
 final class TransactionListViewModelTests: XCTestCase {
 
+    // MARK: - Variables
     private var transactionService: TransactionServiceMock!
 
+    // MARK: - Setup
     override func setUpWithError() throws {
         transactionService = TransactionServiceMock()
         try super.setUpWithError()
     }
 
+    // MARK: - TearDown
     override func tearDownWithError() throws {
         transactionService = nil
         try super.tearDownWithError()
     }
-
+    
+    // MARK: - Tests
     func test_onAppear_EnvrionmentChanged_fetchTransactionIsCalled() async throws {
         // given
         AppEnvironment.shared.isProduction = true

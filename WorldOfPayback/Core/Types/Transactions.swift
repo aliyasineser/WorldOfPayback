@@ -42,6 +42,7 @@ struct TransactionDetail: Codable {
         self.value = value
     }
 
+    // MARK: - Init
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.description = try container.decodeIfPresent(Description.self, forKey: .description)

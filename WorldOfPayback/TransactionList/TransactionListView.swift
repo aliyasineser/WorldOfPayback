@@ -12,7 +12,6 @@ import Foundation
 struct TransactionListView<ViewModel>: View where ViewModel: TransactionListModelView {
 
     // MARK: - Variables
-
     @ObservedObject var viewModel: ViewModel
 
     private var isLoadedAndSuccessful: Bool {
@@ -26,14 +25,12 @@ struct TransactionListView<ViewModel>: View where ViewModel: TransactionListMode
     private var isLoading: Bool { viewModel.isLoading }
 
     // MARK: - Init
-
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
         viewModel.onLoad()
     }
 
     // MARK: - UI
-
     var body: some View {
         NavigationView {
             VStack {
@@ -94,6 +91,7 @@ struct TransactionListView<ViewModel>: View where ViewModel: TransactionListMode
 
 }
 
+// MARK: - Preview
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         TransactionListView(viewModel: DefaultTransactionListModelView())

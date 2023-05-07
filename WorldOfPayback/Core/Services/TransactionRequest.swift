@@ -9,8 +9,10 @@ import Foundation
 import NetworkManager
 
 enum TransactionRequest: NetworkRequest {
+    // MARK: - Cases
     case fetchTransactions
 
+    // MARK: - Variables
     var host: String {
         AppEnvironment.shared.isProduction ? APIConstants.baseURL : APIConstants.testURL
     }

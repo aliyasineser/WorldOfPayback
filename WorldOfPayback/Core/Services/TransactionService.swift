@@ -15,21 +15,17 @@ protocol TransactionService {
 }
 
 // MARK: - Default Class
-
 final class DefaultTransactionService: TransactionService {
 
     // MARK: - Variables
-
     private var requestManager: RequestManager
 
     // MARK: - Init
-
     init(requestManager: RequestManager) {
         self.requestManager = requestManager
     }
 
     // MARK: - Functions
-
     fileprivate func fetchTestTransactions(_ request: TransactionRequest) async throws -> Transactions {
         let data = try MockDataProvider().fetchMock(for: request)
         let dataParser = DataParserFactory().make()

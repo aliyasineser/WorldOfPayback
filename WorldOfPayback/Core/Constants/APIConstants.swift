@@ -11,5 +11,4 @@ enum APIConstants {
     static let baseURL = "api.payback.com"
     static let testURL = "api-test.payback.com"
     static let defaultScheme = "https"
-    static let language = "en-US"
 }

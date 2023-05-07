@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct ErrorView: View {
+
+    // MARK: - Variables
     let errorMessage: String
     let errorHandler: (() -> Void)?
 
+    // MARK: - UI
     var body: some View {
         ZStack {
             Color.red
@@ -33,7 +36,6 @@ struct ErrorView: View {
                     }
                 }
             }
-
         }
         .cornerRadius(10)
         .frame(maxWidth: .infinity, maxHeight: 100)
@@ -41,7 +43,7 @@ struct ErrorView: View {
     }
 }
 
-
+// MARK: - Preview
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
         ErrorView(errorMessage: "Lorem Ipsum Dolor Sit Amet", errorHandler: {})

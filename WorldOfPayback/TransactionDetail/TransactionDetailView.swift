@@ -10,17 +10,14 @@ import SwiftUI
 struct TransactionDetailView: View {
 
     // MARK: - Variables
-
     private let item: Item
 
     // MARK: - Init
-
     init(item: Item) {
         self.item = item
     }
 
     // MARK: - UI
-
     var body: some View {
         VStack(spacing: 20) {
             Text(item.partnerDisplayName)
@@ -33,6 +30,7 @@ struct TransactionDetailView: View {
     }
 }
 
+// MARK: - Preview
 struct TransactionDetailView_Previews: PreviewProvider {
     static var previews: some View {
         TransactionDetailView(item: .mock)

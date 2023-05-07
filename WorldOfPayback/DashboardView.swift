@@ -10,7 +10,6 @@ import SwiftUI
 struct DashboardView: View {
 
     // MARK: - UI
-    
     var body: some View {
 
         TabView {
@@ -32,10 +31,10 @@ struct DashboardView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.visible, for: .navigationBar)
-
     }
 }
 
+// MARK: - Preview
 struct DashboardView_Previews: PreviewProvider {
     static var previews: some View {
         DashboardView()

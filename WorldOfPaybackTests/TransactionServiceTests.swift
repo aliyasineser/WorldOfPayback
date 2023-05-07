@@ -10,18 +10,22 @@ import XCTest
 
 final class TransactionServiceTests: XCTestCase {
 
+    // MARK: - Fariables
     private var requestManager: RequestManagerMock!
 
+    // MARK: - Setup
     override func setUpWithError() throws {
         try super.setUpWithError()
         requestManager = RequestManagerMock()
     }
 
+    // MARK: - TearDown
     override func tearDownWithError() throws {
         requestManager = nil
         try super.tearDownWithError()
     }
 
+    // MARK: - Tests
     func test_ProductionEnv_fetchTransactionCalled_RequestManagerCalledOnce() async throws {
         // given
         AppEnvironment.shared.isProduction = true

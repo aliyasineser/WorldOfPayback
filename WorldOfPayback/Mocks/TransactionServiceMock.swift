@@ -9,11 +9,13 @@ import Foundation
 import NetworkManager
 
 final class TransactionServiceMock: TransactionService {
+    // MARK: - Variables
     var fetchTransactionsCallCount: Int = 0
     var shouldThrowNetworkError: Bool = false
     var shouldThrowMockError: Bool = false
     var shouldThrowDefaultError: Bool = false // to trigger default in catch statement, for coverage
 
+    // MARK: - Functions
     func fetchTransactions() async throws -> Transactions {
         fetchTransactionsCallCount += 1
         if shouldThrowNetworkError { throw NetworkError.invalidURL }
@@ -32,6 +34,7 @@ final class TransactionServiceMock: TransactionService {
     }
 }
 
+// MARK: - Error Type
 enum TransactionMockError: Error {
-case defaultError
+    case defaultError
 }

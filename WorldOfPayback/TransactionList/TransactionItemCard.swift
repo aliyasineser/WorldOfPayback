@@ -10,17 +10,14 @@ import SwiftUI
 struct TransactionItemCard: View {
 
     // MARK: - Variables
-
     private let item: Item
 
     // MARK: - Init
-
     init(item: Item) {
         self.item = item
     }
 
     // MARK: - UI
-
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -50,6 +47,7 @@ struct TransactionItemCard: View {
     }
 }
 
+// MARK: - Preview
 struct TransactionItem_Previews: PreviewProvider {
     static var previews: some View {
         TransactionItemCard(item: .mock)

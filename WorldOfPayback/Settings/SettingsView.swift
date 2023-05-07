@@ -10,18 +10,15 @@ import SwiftUI
 struct SettingsView: View {
 
     // MARK: - Enum
-
     private enum Envrionments: String, CaseIterable, Identifiable {
         case production, test
         var id: Self { self }
     }
 
     // MARK: - Variables
-
     @State private var selectedEnvironment: Envrionments = .test
 
     // MARK: - UI
-
     var body: some View {
         NavigationView {
             List {
@@ -39,12 +36,12 @@ struct SettingsView: View {
     }
 
     // MARK: - Functions
-
     fileprivate func updateEnvironment() {
         AppEnvironment.shared.isProduction = selectedEnvironment == .production ? true : false
     }
 }
 
+// MARK: - Preview
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()

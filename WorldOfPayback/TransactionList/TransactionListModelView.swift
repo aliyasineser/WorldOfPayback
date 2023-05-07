@@ -8,12 +8,17 @@
 import Foundation
 import NetworkManager
 
+// MARK: - Protocol
+
 protocol TransactionListModelView: ObservableObject {
+
+    // MARK: - Functions
     func onAppear()
     func onLoad()
     func filterTransactions()
     func fetchTransactions() async throws
 
+    // MARK: - Variables
     var filter: TransactionsFilter { get set }
     var transactions: [Item] { get }
     var sumOfTransactions: Double { get }
@@ -23,14 +28,15 @@ protocol TransactionListModelView: ObservableObject {
     var isDataMalformed: Bool { get }
 }
 
+// MARK: - Default Implementation
 final class DefaultTransactionListModelView: TransactionListModelView {
 
     // MARK: - Variables
-
     private let transactionService: TransactionService
     private var wasLastEnvProduction = false
-
     private var unfilteredTransactions: [Item] = []
+
+    // MARK: - Published Variables
     @Published var filter: TransactionsFilter = .none
     @Published var transactions: [Item] = []
     @Published var sumOfTransactions: Double = 0.0
@@ -39,6 +45,7 @@ final class DefaultTransactionListModelView: TransactionListModelView {
     @Published var isDataMalformed: Bool = false
     @Published var isLoading: Bool = false
 
+    // MARK: - Init
     init(
         transactionService: TransactionService = TransactionServiceFactory.make()
     ) {
@@ -47,7 +54,6 @@ final class DefaultTransactionListModelView: TransactionListModelView {
     }
 
     // MARK: - Functions
-
     @MainActor
     func onLoad() {
         Task {
@@ -85,12 +91,6 @@ final class DefaultTransactionListModelView: TransactionListModelView {
         isLoading = false
     }
 
-    private func calculateSumOfTransactions() {
-        guard let firstItem = transactions.first else { return } // Both transaction empty check and helps to get the currency
-        sumOfTransactions = transactions.map{ Double($0.transactionDetail.value.amount) }.reduce(0, +)
-        sumOfTransactionsText = "\(L10n.transactionSum): " + sumOfTransactions.description + " " + firstItem.transactionDetail.value.currency.iconCharacter()
-    }
-
     func filterTransactions() {
         switch filter {
         case .none:
@@ -101,7 +101,13 @@ final class DefaultTransactionListModelView: TransactionListModelView {
         calculateSumOfTransactions()
     }
 
-    fileprivate func handleFetchError(_ error: Error) {
+    private func calculateSumOfTransactions() {
+        guard let firstItem = transactions.first else { return } // Both transaction empty check and helps to get the currency
+        sumOfTransactions = transactions.map{ Double($0.transactionDetail.value.amount) }.reduce(0, +)
+        sumOfTransactionsText = "\(L10n.transactionSum): " + sumOfTransactions.description + " " + firstItem.transactionDetail.value.currency.iconCharacter()
+    }
+
+    private func handleFetchError(_ error: Error) {
         isLoading = false
         switch error {
         case is NetworkError:
@@ -112,5 +118,4 @@ final class DefaultTransactionListModelView: TransactionListModelView {
             isOffline = true
         }
     }
-
 }

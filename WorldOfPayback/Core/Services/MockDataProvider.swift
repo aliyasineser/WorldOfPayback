@@ -10,6 +10,7 @@ import NetworkManager
 
 final class MockDataProvider {
 
+    // MARK: - Functions
     func fetchMock(for request: NetworkRequest) throws -> Data {
         switch request {
         case is TransactionRequest:
@@ -32,7 +33,7 @@ final class MockDataProvider {
     }
 }
 
-
+// MARK: - Error Type
 public enum MockError: LocalizedError {
     case missingTestData
     case invalidTestData

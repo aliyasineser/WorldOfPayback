@@ -264,17 +264,17 @@
 			isa = PBXGroup;
 			children = (
 				DD3EF6392A0813E0002DDEBE /* Localization */,
-				DDF46DED2A045DD00006327D /* Mocks */,
+				DDF46DED2A045DD00006327D /* Mock Data */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		DDF46DED2A045DD00006327D /* Mocks */ = {
+		DDF46DED2A045DD00006327D /* Mock Data */ = {
 			isa = PBXGroup;
 			children = (
 				DDF46DE02A0459300006327D /* PBTransactions.json */,
 			);
-			path = Mocks;
+			path = "Mock Data";
 			sourceTree = "<group>";
 		};
 		DDF46DEE2A045EB20006327D /* Services */ = {
