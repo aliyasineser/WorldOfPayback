@@ -26,15 +26,15 @@ struct SettingsView: View {
         NavigationView {
             List {
                 HStack {
-                    Picker("Environment", selection: $selectedEnvironment) {
-                        Text("Production").tag(Envrionments.production)
-                        Text("Test").tag(Envrionments.test)
+                    Picker(L10n.settingsPickerEnvironment, selection: $selectedEnvironment) {
+                        Text(L10n.settingsPickerEnvProduction).tag(Envrionments.production)
+                        Text(L10n.settingsPickerEnvTest).tag(Envrionments.test)
                     }
                     .onChange(of: selectedEnvironment) { _ in updateEnvironment() }
 
                 }
             }
-            .navigationTitle("Settings")
+            .navigationTitle(L10n.settingsViewNavigationTitle)
         }
     }
 

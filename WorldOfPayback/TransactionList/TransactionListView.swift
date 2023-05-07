@@ -46,18 +46,18 @@ struct TransactionListView<ViewModel>: View where ViewModel: TransactionListMode
             }
             .padding()
             .onAppear(perform: viewModel.onAppear)
-            .navigationTitle("World of Payback")
+            .navigationTitle(L10n.transactionListViewNavigationTitle)
         }
     }
 
     private var categoryPickerView: some View {
         // Review Note: This section can be written better if the category logic is explained
         // The solution is based on what I see in the JSON mocked response
-        Picker("Filter", selection: $viewModel.filter) {
-            Text("Show All").tag(TransactionsFilter.none)
-            Text("Category 1").tag(TransactionsFilter.byCategory(category: 1))
-            Text("Category 2").tag(TransactionsFilter.byCategory(category: 2))
-            Text("Category 3").tag(TransactionsFilter.byCategory(category: 3))
+        Picker(L10n.pickerFilterTitle, selection: $viewModel.filter) {
+            Text(L10n.pickerFilterOptionShowAll).tag(TransactionsFilter.none)
+            Text(L10n.pickerFilterCategory(1)).tag(TransactionsFilter.byCategory(category: 1))
+            Text(L10n.pickerFilterCategory(2)).tag(TransactionsFilter.byCategory(category: 2))
+            Text(L10n.pickerFilterCategory(3)).tag(TransactionsFilter.byCategory(category: 3))
         }
         .pickerStyle(.segmented)
         .onChange(of: viewModel.filter) { _ in viewModel.filterTransactions() }

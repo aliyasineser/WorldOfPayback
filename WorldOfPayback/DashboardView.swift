@@ -17,7 +17,7 @@ struct DashboardView: View {
                 TransactionListView(viewModel: DefaultTransactionListModelView())
                     .tabItem {
                         VStack {
-                            Text("Transactions")
+                            Text(L10n.transactionsTabTitle)
                             Image(systemName: "cart")
                         }
                     }
@@ -25,7 +25,7 @@ struct DashboardView: View {
                 SettingsView()
                     .tabItem {
                         VStack {
-                            Text("Settings")
+                            Text(L10n.settingsTabTitle)
                             Image(systemName: "gear")
                         }
                     }

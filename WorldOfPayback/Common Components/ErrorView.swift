@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ErrorView: View {
     let errorMessage: String
-    let errorHandler: () -> Void
+    let errorHandler: (() -> Void)?
 
     var body: some View {
         ZStack {
@@ -24,12 +24,13 @@ struct ErrorView: View {
                         .foregroundColor(.white)
                 }
                 .padding(.bottom, 5)
-
-                Button(action: errorHandler) {
-                    Text("Try again")
-                        .foregroundColor(.white)
-                        .font(.title3)
-                        .fontWeight(.bold)
+                if let errorHandler {
+                    Button(action: errorHandler) {
+                        Text(L10n.errorViewTryAgain)
+                            .foregroundColor(.white)
+                            .font(.title3)
+                            .fontWeight(.bold)
+                    }
                 }
             }
 

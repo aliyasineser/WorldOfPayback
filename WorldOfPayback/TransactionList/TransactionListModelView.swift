@@ -76,7 +76,7 @@ final class DefaultTransactionListModelView: TransactionListModelView {
     private func calculateSumOfTransactions() {
         guard let firstItem = transactions.first else { return } // Both transaction empty check and helps to get the currency
         sumOfTransactions = transactions.map{ Double($0.transactionDetail.value.amount) }.reduce(0, +)
-        sumOfTransactionsText = "Sum: " + sumOfTransactions.description + " " + firstItem.transactionDetail.value.currency.iconCharacter()
+        sumOfTransactionsText = "\(L10n.transactionSum): " + sumOfTransactions.description + " " + firstItem.transactionDetail.value.currency.iconCharacter()
     }
 
     func filterTransactions() {

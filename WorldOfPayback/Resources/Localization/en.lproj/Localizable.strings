@@ -7,3 +7,15 @@
 */
 
 "TransactionFetchErrorMessage" = "Couldn't fetch the transactions.";
+"TransactionListViewNavigationTitle" = "World of Payback";
+"PickerFilterTitle" = "Filter";
+"PickerFilterOptionShowAll" = "Show All";
+"PickerFilterCategory" = "Category %d";
+"TransactionSum" = "Sum";
+"SettingsPickerEnvironment" = "Environment";
+"SettingsPickerEnvProduction" = "Production";
+"SettingsPickerEnvTest" = "Test";
+"SettingsViewNavigationTitle" = "Settings";
+"ErrorViewTryAgain" = "Try again";
+"TransactionsTabTitle" = "Transactions";
+"SettingsTabTitle" = "Settings";

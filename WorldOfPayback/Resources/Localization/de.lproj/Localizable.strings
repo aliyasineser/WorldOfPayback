@@ -7,3 +7,15 @@
 */
 
 "TransactionFetchErrorMessage" = "Die Transaktionen konnten nicht abgerufen werden.";
+"TransactionListViewNavigationTitle" = "Welt der Payback";
+"PickerFilterTitle" = "Filter";
+"PickerFilterOptionShowAll" = "Alle anzeigen";
+"PickerFilterCategory" = "Kategorie %d";
+"TransactionSum" = "Summe";
+"SettingsPickerEnvironment" = "Umwelt";
+"SettingsPickerEnvProduction" = "Produktion";
+"SettingsPickerEnvTest" = "Test";
+"SettingsViewNavigationTitle" = "Einstellungen";
+"ErrorViewTryAgain" = "Erneut versuchen";
+"TransactionsTabTitle" = "Transaktionen";
+"SettingsTabTitle" = "Einstellungen";
