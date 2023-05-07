@@ -16,7 +16,7 @@ struct WorldOfPaybackApp: App {
 
     var body: some Scene {
         WindowGroup {
-            TransactionListView(viewModel: DefaultTransactionListModelView())
+            DashboardView()
         }
     }
 }
