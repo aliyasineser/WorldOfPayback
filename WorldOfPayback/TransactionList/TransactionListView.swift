@@ -15,6 +15,16 @@ struct TransactionListView<ViewModel>: View where ViewModel: TransactionListMode
 
     @ObservedObject var viewModel: ViewModel
 
+    private var isLoadedAndSuccessful: Bool {
+        !(viewModel.isOffline || viewModel.isDataMalformed) && !viewModel.isLoading
+    }
+
+    private var isErrorReceived: Bool {
+        (viewModel.isOffline || viewModel.isDataMalformed)
+    }
+
+    private var isLoading: Bool { viewModel.isLoading }
+
     // MARK: - Init
 
     init(viewModel: ViewModel) {
@@ -26,31 +36,57 @@ struct TransactionListView<ViewModel>: View where ViewModel: TransactionListMode
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.isLoading {
-                    ProgressView()
-                }
-                if viewModel.isOffline || viewModel.isDataMalformed {
-                    VStack {
-                        ErrorView(errorMessage: "Couldn't fetch the transactions.") {
-                            Task {
-                                try await viewModel.fetchTransactions()
-                            }
-                        }
-                    }
-                }
-                List(
-                    viewModel.transactions,
-                    id: \.alias.reference
-                ) {
-                    TransactionItemCard(item: $0)
-                }
-
+                if isLoading { ProgressView() }
+                if isErrorReceived { errorView }
+                if isLoadedAndSuccessful { categoryPickerView }
+                transactionListView
+                Spacer()
+                Divider()
+                if isLoadedAndSuccessful { sumOfTransactionsView }
             }
             .padding()
             .onAppear(perform: viewModel.onAppear)
             .navigationTitle("World of Payback")
         }
     }
+
+    private var categoryPickerView: some View {
+        // Review Note: This section can be written better if the category logic is explained
+        // The solution is based on what I see in the JSON
+        Picker("Filter", selection: $viewModel.filter) {
+            Text("Show All").tag(TransactionsFilter.none)
+            Text("Category 1").tag(TransactionsFilter.byCategory(category: 1))
+            Text("Category 2").tag(TransactionsFilter.byCategory(category: 2))
+            Text("Category 3").tag(TransactionsFilter.byCategory(category: 3))
+        }
+        .pickerStyle(.segmented)
+        .onChange(of: viewModel.filter) { _ in viewModel.filterTransactions() }
+    }
+
+    private var transactionListView: some View {
+        List(
+            viewModel.transactions,
+            id: \.alias.reference
+        ) {
+            TransactionItemCard(item: $0)
+        }
+        .listStyle(.plain)
+    }
+
+    private var sumOfTransactionsView: some View {
+        Text(viewModel.sumOfTransactionsText)
+    }
+
+    private var errorView: some View {
+        VStack {
+            ErrorView(errorMessage: "Couldn't fetch the transactions.") {
+                Task {
+                    try await viewModel.fetchTransactions()
+                }
+            }
+        }
+    }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -59,35 +95,3 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct ErrorView: View {
-    let errorMessage: String
-    let errorHandler: () -> Void
-
-    var body: some View {
-        ZStack {
-            Color.red
-                .opacity(0.7)
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(systemName: "exclamationmark.triangle")
-                        .font(.title2)
-                        .foregroundColor(.white)
-                    Text(errorMessage)
-                        .foregroundColor(.white)
-                }
-                .padding(.bottom, 5)
-
-                Button(action: errorHandler) {
-                    Text("Try again")
-                        .foregroundColor(.white)
-                        .font(.title3)
-                        .fontWeight(.bold)
-                }
-            }
-
-        }
-        .cornerRadius(10)
-        .frame(maxWidth: .infinity, maxHeight: 100)
-        .animation(.easeOut, value: 0.5)
-    }
-}

@@ -87,4 +87,13 @@ enum Currency: String, Codable {
             return "sterlingsign"
         }
     }
+
+    func iconCharacter() -> String {
+        switch self {
+        case .eur:
+            return "€"
+        case .pbp:
+            return "£"
+        }
+    }
 }

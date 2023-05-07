@@ -10,14 +10,23 @@ import NetworkManager
 
 protocol TransactionListModelView: ObservableObject {
     func onAppear()
+    func filterTransactions()
     func fetchTransactions() async throws
 
+    var filter: TransactionsFilter { get set }
     var transactions: [Item] { get }
+    var sumOfTransactions: Double { get }
+    var sumOfTransactionsText: String { get }
     var isOffline: Bool { get }
     var isLoading: Bool { get }
     var isDataMalformed: Bool { get }
 }
 
+
+enum TransactionsFilter: Hashable, Equatable {
+    case none
+    case byCategory(category: Int)
+}
 
 final class DefaultTransactionListModelView: TransactionListModelView {
 
@@ -25,8 +34,12 @@ final class DefaultTransactionListModelView: TransactionListModelView {
 
     private let service = TransactionServiceFactory.getSharedInstance()
 
+    private var unfilteredTransactions: [Item] = []
+    @Published var filter: TransactionsFilter = .none
     @Published var transactions: [Item] = []
+    @Published var sumOfTransactions: Double = 0.0
     @Published var isOffline: Bool = false
+    @Published var sumOfTransactionsText: String = ""
     @Published var isDataMalformed: Bool = false
     @Published var isLoading: Bool = false
 
@@ -44,16 +57,36 @@ final class DefaultTransactionListModelView: TransactionListModelView {
         isOffline = false
         isDataMalformed = false
 
+        unfilteredTransactions = []
         transactions = []
         isLoading = true
 
         do {
-            transactions = try await service.fetchTransactions().items.sorted { $0.transactionDetail.bookingDate > $1.transactionDetail.bookingDate }
+            let fetchedTransactions = try await service.fetchTransactions().items
+            unfilteredTransactions = fetchedTransactions.sorted { $0.transactionDetail.bookingDate > $1.transactionDetail.bookingDate }
+            filterTransactions()
+            calculateSumOfTransactions()
         } catch let error {
             handleFetchError(error)
         }
 
         isLoading = false
+    }
+
+    private func calculateSumOfTransactions() {
+        guard let firstItem = transactions.first else { return } // Both transaction empty check and helps to get the currency
+        sumOfTransactions = transactions.map{ Double($0.transactionDetail.value.amount) }.reduce(0, +)
+        sumOfTransactionsText = "Sum: " + sumOfTransactions.description + " " + firstItem.transactionDetail.value.currency.iconCharacter()
+    }
+
+    func filterTransactions() {
+        switch filter {
+        case .none:
+            transactions = unfilteredTransactions
+        case .byCategory(let category):
+            transactions = unfilteredTransactions.filter {$0.category == category}
+        }
+        calculateSumOfTransactions()
     }
 
     fileprivate func handleFetchError(_ error: Error) {

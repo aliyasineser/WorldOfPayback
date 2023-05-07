@@ -23,10 +23,11 @@ struct TransactionItemCard: View {
 
     var body: some View {
         HStack {
-            VStack {
+            VStack(alignment: .leading) {
                 Text(item.partnerDisplayName)
                     .font(.title2)
                     .padding(.bottom, 10)
+                    .fontWeight(.bold)
                 if let description = item.transactionDetail.description {
                     Text(description.rawValue)
                 }
@@ -34,11 +35,14 @@ struct TransactionItemCard: View {
             Spacer()
             VStack {
                 Text(item.transactionDetail.bookingDate.formatted(date: .abbreviated, time: .omitted))
+                    .font(.subheadline)
                     .padding(.bottom, 10)
                 HStack(spacing: 1) {
                     Text(item.transactionDetail.value.amount.description)
                         .font(.title2)
+                        .fontWeight(.semibold)
                     Image(systemName: item.transactionDetail.value.currency.iconName())
+                        .fontWeight(.semibold)
                 }
             }
         }
