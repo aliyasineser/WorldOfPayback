@@ -8,10 +8,14 @@
 import Foundation
 
 class AppEnvironment {
+
+    // MARK: - Shared Instance
+
     static let shared = AppEnvironment()
 
-    private let queue = DispatchQueue(label: "com.yeser.AppEnvironmentQueue")
+    // MARK: - Variables
 
+    private let queue = DispatchQueue(label: "com.yeser.AppEnvironmentQueue")
     private var _isProduction: Bool = true
 
     var isProduction: Bool {
@@ -26,6 +30,8 @@ class AppEnvironment {
             }
         }
     }
+
+    // MARK: - Init
 
     private init() {}
 }

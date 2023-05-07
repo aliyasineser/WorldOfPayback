@@ -8,15 +8,25 @@
 import Foundation
 import NetworkManager
 
+// MARK: - Protocol
+
 protocol TransactionService {
     func fetchTransactions() async throws -> Transactions
 }
 
+// MARK: - Default Class
+
 final class DefaultTransactionService: TransactionService {
+
+    // MARK: - Variables
 
     private var requestManager: RequestManager = RequestManagerFactory().make()
 
+    // MARK: - Shared Instance
+
     public static let shared = DefaultTransactionService()
+
+    // MARK: - Functions
 
     fileprivate func fetchTestTransactions(_ request: TransactionRequest) async throws -> Transactions {
         let data = try MockDataProvider().fetchMock(for: request)
@@ -33,6 +43,8 @@ final class DefaultTransactionService: TransactionService {
         return try await requestManager.initRequest(with: request)
     }
 }
+
+// MARK: - Factory
 
 class TransactionServiceFactory {
     private static let shared = DefaultTransactionService()

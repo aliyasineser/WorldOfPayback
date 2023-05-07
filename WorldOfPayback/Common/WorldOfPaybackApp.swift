@@ -10,9 +10,13 @@ import SwiftUI
 @main
 struct WorldOfPaybackApp: App {
 
+    // MARK: - Init
+
     init() {
         AppEnvironment.shared.isProduction = false // Assuming JSON read case, can be changed in the app
     }
+
+    // MARK: - Scene
 
     var body: some Scene {
         WindowGroup {

@@ -7,22 +7,20 @@
 
 import SwiftUI
 
-
-
-
 struct SettingsView: View {
 
-    enum Envrionments: String, CaseIterable, Identifiable {
+    // MARK: - Enum
+
+    private enum Envrionments: String, CaseIterable, Identifiable {
         case production, test
         var id: Self { self }
     }
 
+    // MARK: - Variables
+
     @State private var selectedEnvironment: Envrionments = .test
 
-
-    fileprivate func updateEnvironment() {
-        AppEnvironment.shared.isProduction = selectedEnvironment == .production ? true : false
-    }
+    // MARK: - UI
 
     var body: some View {
         List {
@@ -35,6 +33,12 @@ struct SettingsView: View {
 
             }
         }
+    }
+
+    // MARK: - Functions
+
+    fileprivate func updateEnvironment() {
+        AppEnvironment.shared.isProduction = selectedEnvironment == .production ? true : false
     }
 }
 

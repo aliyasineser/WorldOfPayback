@@ -61,6 +61,7 @@ struct TransactionDetail: Codable {
     public static let mock: TransactionDetail = TransactionDetail(description: .punkteSammeln, bookingDate: .now, value: .mock)
 }
 
+// MARK: - Description
 enum Description: String, Codable {
     case punkteSammeln = "Punkte sammeln"
 }
@@ -73,6 +74,7 @@ struct Value: Codable {
     public static let mock: Value = Value(amount: 100, currency: .pbp)
 }
 
+// MARK: - Currency
 enum Currency: String, Codable {
     case pbp = "PBP"
     case eur = "EUR"
@@ -83,8 +85,6 @@ enum Currency: String, Codable {
             return "eurosign"
         case .pbp:
             return "sterlingsign"
-        default:
-            return "turkishlirasign"
         }
     }
 }

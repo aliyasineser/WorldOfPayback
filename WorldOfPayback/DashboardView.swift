@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct DashboardView: View {
+
+    // MARK: - UI
+
     var body: some View {
         NavigationView {
             TabView {

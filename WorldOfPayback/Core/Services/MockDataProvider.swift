@@ -25,14 +25,12 @@ final class MockDataProvider {
         }
 
         do {
-            let data = try Data(contentsOf: url)
-            return data
+            return try Data(contentsOf: url)
         } catch {
             throw MockError.invalidTestData
         }
     }
 }
-
 
 
 public enum MockError: LocalizedError {

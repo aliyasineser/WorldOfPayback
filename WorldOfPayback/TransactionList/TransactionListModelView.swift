@@ -14,16 +14,20 @@ protocol TransactionListModelView: ObservableObject {
     var transactions: Transactions? { get }
     var isOffline: Bool { get }
     var isDataMalformed: Bool { get }
-
 }
 
 
 final class DefaultTransactionListModelView: TransactionListModelView {
-    let service = TransactionServiceFactory.getSharedInstance()
+
+    // MARK: - Variables
+
+    private let service = TransactionServiceFactory.getSharedInstance()
 
     @Published var transactions: Transactions?
     @Published var isOffline: Bool = false
     @Published var isDataMalformed: Bool = false
+
+    // MARK: - Functions
 
     @MainActor
     func onAppear() {

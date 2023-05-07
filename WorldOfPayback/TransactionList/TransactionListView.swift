@@ -10,11 +10,18 @@ import Combine
 import Foundation
 
 struct TransactionListView<ViewModel>: View where ViewModel: TransactionListModelView {
+
+    // MARK: - Variables
+
     @ObservedObject var viewModel: ViewModel
+
+    // MARK: - Init
 
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
     }
+
+    // MARK: - UI
 
     var body: some View {
         VStack {
@@ -22,7 +29,6 @@ struct TransactionListView<ViewModel>: View where ViewModel: TransactionListMode
                 List(transactions.items, id: \.alias.reference) {
                     TransactionItemCard(item: $0)
                 }
-
             }
         }
         .padding()
