@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  WorldOfPayback
+
+  Created by Ali Yasin Eser on 07.05.23.
+  
+*/
+
+"TransactionFetchErrorMessage" = "Die Transaktionen konnten nicht abgerufen werden.";

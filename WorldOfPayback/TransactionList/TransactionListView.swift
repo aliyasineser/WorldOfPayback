@@ -52,7 +52,7 @@ struct TransactionListView<ViewModel>: View where ViewModel: TransactionListMode
 
     private var categoryPickerView: some View {
         // Review Note: This section can be written better if the category logic is explained
-        // The solution is based on what I see in the JSON
+        // The solution is based on what I see in the JSON mocked response
         Picker("Filter", selection: $viewModel.filter) {
             Text("Show All").tag(TransactionsFilter.none)
             Text("Category 1").tag(TransactionsFilter.byCategory(category: 1))
@@ -67,8 +67,12 @@ struct TransactionListView<ViewModel>: View where ViewModel: TransactionListMode
         List(
             viewModel.transactions,
             id: \.alias.reference
-        ) {
-            TransactionItemCard(item: $0)
+        ) { item in
+            NavigationLink {
+                TransactionDetailView(item: item)
+            } label: {
+                TransactionItemCard(item: item)
+            }
         }
         .listStyle(.plain)
     }
@@ -79,7 +83,7 @@ struct TransactionListView<ViewModel>: View where ViewModel: TransactionListMode
 
     private var errorView: some View {
         VStack {
-            ErrorView(errorMessage: "Couldn't fetch the transactions.") {
+            ErrorView(errorMessage: L10n.transactionFetchErrorMessage) {
                 Task {
                     try await viewModel.fetchTransactions()
                 }
