@@ -27,7 +27,7 @@ final class DefaultTransactionListModelView: TransactionListModelView {
 
     // MARK: - Variables
 
-    private let service = TransactionServiceFactory.getSharedInstance()
+    private let transactionService: TransactionService
     private var wasLastEnvProduction = false
 
     private var unfilteredTransactions: [Item] = []
@@ -38,6 +38,13 @@ final class DefaultTransactionListModelView: TransactionListModelView {
     @Published var sumOfTransactionsText: String = ""
     @Published var isDataMalformed: Bool = false
     @Published var isLoading: Bool = false
+
+    init(
+        transactionService: TransactionService = TransactionServiceFactory.make()
+    ) {
+        self.transactionService = transactionService
+        self.wasLastEnvProduction = AppEnvironment.shared.isProduction
+    }
 
     // MARK: - Functions
 
@@ -67,7 +74,7 @@ final class DefaultTransactionListModelView: TransactionListModelView {
         isLoading = true
 
         do {
-            let fetchedTransactions = try await service.fetchTransactions().items
+            let fetchedTransactions = try await transactionService.fetchTransactions().items
             unfilteredTransactions = fetchedTransactions.sorted { $0.transactionDetail.bookingDate > $1.transactionDetail.bookingDate }
             filterTransactions()
             calculateSumOfTransactions()

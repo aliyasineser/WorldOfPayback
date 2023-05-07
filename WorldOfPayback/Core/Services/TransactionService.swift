@@ -20,11 +20,13 @@ final class DefaultTransactionService: TransactionService {
 
     // MARK: - Variables
 
-    private var requestManager: RequestManager = RequestManagerFactory().make()
+    private var requestManager: RequestManager
 
-    // MARK: - Shared Instance
+    // MARK: - Init
 
-    public static let shared = DefaultTransactionService()
+    init(requestManager: RequestManager) {
+        self.requestManager = requestManager
+    }
 
     // MARK: - Functions
 
@@ -41,15 +43,5 @@ final class DefaultTransactionService: TransactionService {
         let request = TransactionRequest.fetchTransactions
         guard AppEnvironment.shared.isProduction else { return try await fetchTestTransactions(request) }
         return try await requestManager.initRequest(with: request)
-    }
-}
-
-// MARK: - Factory
-
-class TransactionServiceFactory {
-    private static let shared = DefaultTransactionService()
-
-    static func getSharedInstance() -> TransactionService {
-        shared
     }
 }

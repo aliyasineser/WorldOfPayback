@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "29C15250-C5A4-49A7-9DAC-34B7C4823183",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:WorldOfPayback.xcodeproj",
+        "identifier" : "DDF46DC02A0458FB0006327D",
+        "name" : "WorldOfPaybackTests"
+      }
+    }
+  ],
+  "version" : 1
+}

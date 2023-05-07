@@ -19,7 +19,8 @@ struct Item: Codable {
     let category: Int
     let transactionDetail: TransactionDetail
 
-    public static let mock: Item = Item(partnerDisplayName: "Display Name", alias: .mock, category: 1, transactionDetail: .mock)
+    public static let mock: Item = .mock(withCategory: 1)
+    public static func mock(withCategory: Int) -> Item { Item(partnerDisplayName: "Display Name", alias: .mock, category: withCategory, transactionDetail: .mock) }
 }
 
 // MARK: - Alias
