@@ -10,6 +10,7 @@ import NetworkManager
 
 protocol TransactionListModelView: ObservableObject {
     func onAppear()
+    func fetchTransactions() async throws
 
     var transactions: Transactions? { get }
     var isOffline: Bool { get }
@@ -34,23 +35,29 @@ final class DefaultTransactionListModelView: TransactionListModelView {
     @MainActor
     func onAppear() {
         Task {
-            do {
-                try await refetchTransactions()
-            } catch let error {
-                handleFetchError(error)
-            }
+            await fetchTransactions()
         }
     }
 
     @MainActor
-    func refetchTransactions() async throws {
+    func fetchTransactions() async {
+        isOffline = false
+        isDataMalformed = false
+
         transactions = nil
         isLoading = true
-        transactions = try await service.fetchTransactions()
+
+        do {
+            transactions = try await service.fetchTransactions()
+        } catch let error {
+            handleFetchError(error)
+        }
+
         isLoading = false
     }
 
     fileprivate func handleFetchError(_ error: Error) {
+        isLoading = false
         switch error {
         case is NetworkError:
             isOffline = true
