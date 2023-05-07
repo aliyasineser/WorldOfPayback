@@ -24,18 +24,21 @@ struct TransactionListView<ViewModel>: View where ViewModel: TransactionListMode
     // MARK: - UI
 
     var body: some View {
-        VStack {
-            if let transactions = viewModel.transactions {
-                List(transactions.items, id: \.alias.reference) {
-                    TransactionItemCard(item: $0)
+        NavigationView {
+            VStack {
+                if viewModel.isLoading {
+                    ProgressView()
+                }
+                if let transactions = viewModel.transactions {
+                    List(transactions.items, id: \.alias.reference) {
+                        TransactionItemCard(item: $0)
+                    }
                 }
             }
+            .padding()
+            .onAppear(perform: viewModel.onAppear)
+            .navigationTitle("World of Payback")
         }
-        .padding()
-        .onAppear(perform: viewModel.onAppear)
-        .navigationTitle("World Of Payback")
-        .navigationBarTitleDisplayMode(.inline)
-
     }
 }
 

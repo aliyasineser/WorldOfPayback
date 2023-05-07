@@ -161,13 +161,13 @@
 		DDF46DB32A0458FA0006327D /* WorldOfPayback */ = {
 			isa = PBXGroup;
 			children = (
+				DD3EF6312A07C027002DDEBE /* DashboardView.swift */,
 				DD3EF6332A07C0CC002DDEBE /* Settings */,
 				DD2661F22A067D8600A0A98F /* TransactionList */,
 				DDF46DE32A0459500006327D /* Core */,
 				DD2661F32A067D9800A0A98F /* Common */,
 				DDF46DEC2A045DC50006327D /* Resources */,
 				DDF46DBA2A0458FB0006327D /* Preview Content */,
-				DD3EF6312A07C027002DDEBE /* DashboardView.swift */,
 			);
 			path = WorldOfPayback;
 			sourceTree = "<group>";

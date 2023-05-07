@@ -23,15 +23,18 @@ struct SettingsView: View {
     // MARK: - UI
 
     var body: some View {
-        List {
-            HStack {
-                Picker("Environment", selection: $selectedEnvironment) {
-                    Text("Production").tag(Envrionments.production)
-                    Text("Test").tag(Envrionments.test)
-                }
-                .onChange(of: selectedEnvironment) { _ in updateEnvironment() }
+        NavigationView {
+            List {
+                HStack {
+                    Picker("Environment", selection: $selectedEnvironment) {
+                        Text("Production").tag(Envrionments.production)
+                        Text("Test").tag(Envrionments.test)
+                    }
+                    .onChange(of: selectedEnvironment) { _ in updateEnvironment() }
 
+                }
             }
+            .navigationTitle("Settings")
         }
     }
 

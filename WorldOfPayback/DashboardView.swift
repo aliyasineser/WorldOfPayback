@@ -12,7 +12,7 @@ struct DashboardView: View {
     // MARK: - UI
 
     var body: some View {
-        NavigationView {
+
             TabView {
                 TransactionListView(viewModel: DefaultTransactionListModelView())
                     .tabItem {
@@ -30,7 +30,9 @@ struct DashboardView: View {
                         }
                     }
             }
-        }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar(.visible, for: .navigationBar)
+
     }
 }
 
