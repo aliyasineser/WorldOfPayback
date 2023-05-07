@@ -12,7 +12,7 @@ protocol TransactionListModelView: ObservableObject {
     func onAppear()
     func fetchTransactions() async throws
 
-    var transactions: Transactions? { get }
+    var transactions: [Item] { get }
     var isOffline: Bool { get }
     var isLoading: Bool { get }
     var isDataMalformed: Bool { get }
@@ -25,7 +25,7 @@ final class DefaultTransactionListModelView: TransactionListModelView {
 
     private let service = TransactionServiceFactory.getSharedInstance()
 
-    @Published var transactions: Transactions?
+    @Published var transactions: [Item] = []
     @Published var isOffline: Bool = false
     @Published var isDataMalformed: Bool = false
     @Published var isLoading: Bool = false
@@ -44,11 +44,11 @@ final class DefaultTransactionListModelView: TransactionListModelView {
         isOffline = false
         isDataMalformed = false
 
-        transactions = nil
+        transactions = []
         isLoading = true
 
         do {
-            transactions = try await service.fetchTransactions()
+            transactions = try await service.fetchTransactions().items.sorted { $0.transactionDetail.bookingDate > $1.transactionDetail.bookingDate }
         } catch let error {
             handleFetchError(error)
         }

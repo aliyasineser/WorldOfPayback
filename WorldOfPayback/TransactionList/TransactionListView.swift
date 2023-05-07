@@ -38,11 +38,13 @@ struct TransactionListView<ViewModel>: View where ViewModel: TransactionListMode
                         }
                     }
                 }
-                if let transactions = viewModel.transactions {
-                    List(transactions.items, id: \.alias.reference) {
-                        TransactionItemCard(item: $0)
-                    }
+                List(
+                    viewModel.transactions,
+                    id: \.alias.reference
+                ) {
+                    TransactionItemCard(item: $0)
                 }
+
             }
             .padding()
             .onAppear(perform: viewModel.onAppear)
