@@ -20,6 +20,7 @@
 		DD3EF6412A081989002DDEBE /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = DD3EF6402A081989002DDEBE /* swiftgen.yml */; };
 		DD3EF6432A081AE5002DDEBE /* LocalizedAppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3EF6422A081AE5002DDEBE /* LocalizedAppStrings.swift */; };
 		DD3EF6462A081B9A002DDEBE /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3EF6452A081B9A002DDEBE /* TransactionDetailView.swift */; };
+		DD3EF6482A0821C9002DDEBE /* TransactionsFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3EF6472A0821C9002DDEBE /* TransactionsFilter.swift */; };
 		DDF46DB52A0458FA0006327D /* WorldOfPaybackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF46DB42A0458FA0006327D /* WorldOfPaybackApp.swift */; };
 		DDF46DB72A0458FA0006327D /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF46DB62A0458FA0006327D /* TransactionListView.swift */; };
 		DDF46DB92A0458FB0006327D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF46DB82A0458FB0006327D /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		DD3EF6402A081989002DDEBE /* swiftgen.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = SOURCE_ROOT; };
 		DD3EF6422A081AE5002DDEBE /* LocalizedAppStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedAppStrings.swift; sourceTree = "<group>"; };
 		DD3EF6452A081B9A002DDEBE /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
+		DD3EF6472A0821C9002DDEBE /* TransactionsFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsFilter.swift; sourceTree = "<group>"; };
 		DDF46DB12A0458FA0006327D /* WorldOfPayback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldOfPayback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF46DB42A0458FA0006327D /* WorldOfPaybackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPaybackApp.swift; sourceTree = "<group>"; };
 		DDF46DB62A0458FA0006327D /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				DDF46DB62A0458FA0006327D /* TransactionListView.swift */,
 				DD2661F02A06732900A0A98F /* TransactionListModelView.swift */,
 				DD2661F42A06818300A0A98F /* TransactionItemCard.swift */,
+				DD3EF6472A0821C9002DDEBE /* TransactionsFilter.swift */,
 			);
 			path = TransactionList;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 			files = (
 				DD2661EF2A066F8400A0A98F /* MockDataProvider.swift in Sources */,
 				DD2661EC2A0667FA00A0A98F /* AppEnvironment.swift in Sources */,
+				DD3EF6482A0821C9002DDEBE /* TransactionsFilter.swift in Sources */,
 				DDF46DF22A045EF20006327D /* TransactionRequest.swift in Sources */,
 				DD2661F52A06818300A0A98F /* TransactionItemCard.swift in Sources */,
 				DDF46DE62A0459A50006327D /* Transactions.swift in Sources */,

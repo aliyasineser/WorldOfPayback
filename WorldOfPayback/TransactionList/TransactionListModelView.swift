@@ -10,6 +10,7 @@ import NetworkManager
 
 protocol TransactionListModelView: ObservableObject {
     func onAppear()
+    func onLoad()
     func filterTransactions()
     func fetchTransactions() async throws
 
@@ -22,17 +23,12 @@ protocol TransactionListModelView: ObservableObject {
     var isDataMalformed: Bool { get }
 }
 
-
-enum TransactionsFilter: Hashable, Equatable {
-    case none
-    case byCategory(category: Int)
-}
-
 final class DefaultTransactionListModelView: TransactionListModelView {
 
     // MARK: - Variables
 
     private let service = TransactionServiceFactory.getSharedInstance()
+    private var wasLastEnvProduction = false
 
     private var unfilteredTransactions: [Item] = []
     @Published var filter: TransactionsFilter = .none
@@ -46,7 +42,16 @@ final class DefaultTransactionListModelView: TransactionListModelView {
     // MARK: - Functions
 
     @MainActor
+    func onLoad() {
+        Task {
+            await fetchTransactions()
+        }
+    }
+
+    @MainActor
     func onAppear() {
+        guard wasLastEnvProduction != AppEnvironment.shared.isProduction else { return }
+        wasLastEnvProduction = AppEnvironment.shared.isProduction
         Task {
             await fetchTransactions()
         }

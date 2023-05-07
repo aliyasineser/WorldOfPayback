@@ -29,6 +29,7 @@ struct TransactionListView<ViewModel>: View where ViewModel: TransactionListMode
 
     init(viewModel: ViewModel) {
         self.viewModel = viewModel
+        viewModel.onLoad()
     }
 
     // MARK: - UI
