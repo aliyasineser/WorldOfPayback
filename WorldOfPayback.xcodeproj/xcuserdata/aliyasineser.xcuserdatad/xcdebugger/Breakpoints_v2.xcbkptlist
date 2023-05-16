@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "96EB7EA5-FE6B-49EC-84B8-3E2CEBCEB9ED"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E3B3B669-C250-4D28-9278-F6C6A17FC38E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WorldOfPayback/TransactionList/TransactionListModelView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "onAppear()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E3B3B669-C250-4D28-9278-F6C6A17FC38E - ffe7257c2007b3c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in WorldOfPayback.DefaultTransactionListModelView.onAppear() -&gt; ()"
+                  moduleName = "WorldOfPayback"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aliyasineser/Projects/WorldOfPayback/WorldOfPayback/TransactionList/TransactionListModelView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "E3B3B669-C250-4D28-9278-F6C6A17FC38E - 187e9f4a1a24c2fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in WorldOfPayback.DefaultTransactionListModelView.onAppear() -&gt; ()"
+                  moduleName = "WorldOfPayback"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aliyasineser/Projects/WorldOfPayback/WorldOfPayback/TransactionList/TransactionListModelView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "E3B3B669-C250-4D28-9278-F6C6A17FC38E - 501917d339e877c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in WorldOfPayback.DefaultTransactionListModelView.onAppear() -&gt; ()"
+                  moduleName = "WorldOfPayback"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aliyasineser/Projects/WorldOfPayback/WorldOfPayback/TransactionList/TransactionListModelView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
